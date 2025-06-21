@@ -226,3 +226,35 @@ int main(int argc, char *argv[]) {
 }
 
 ```
+
+### Penjelasan
+```c
+#define FUSE_USE_VERSION 28
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fuse.h>
+#include <fuse/fuse.h>
+#include <linux/limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+```
+
+Bagian ini adalah daftar header files di awal program C. Semua file header tersebut berisi deklarasi fungsi, tipe data, makro, dan konstanta yang dibutuhkan saat menulis program FUSE.
+- `#define FUSE_USE_VERSION 28` ini digunakan untuk menentukan API FUSE versi 2.8 (salah satu versi stabil untuk FUSE).
+- `#include <dirent.h>` header untuk bekerja dengan direktori (fungsi `opendir()`, `readdir()`, `closedir()`).
+- `#include <errno.h>` header untuk menangani error di C (konstanta error seperti `EACCES`, `ENOENT`, dll.).
+- `#include <fcntl.h>` header untuk file control (fungsi `open()`, flag file seperti `O_RDONLY`, `O_WRONLY`, `O_CREAT`, dll.).
+- `#include <fuse.h>`, `#include <fuse/fuse.h>` header utama untuk FUSE.
+- `#include <linux/limits.h>` header untuk konstanta `PATH_MAX` (panjang path file maksimal).
+- `#include <stdio.h>` dan `#include <stdlib.h>` header untuk input/output standar dan utility (`printf()`, `sprintf()`, `malloc()`, `exit()`, dll.).
+- `#include <string.h>` header untuk manipulasi string (`strcpy()`, `strcmp()`, `strncmp()`, `strlen()`, `memset()`, dll.).
+- `#include <sys/stat.h>` header untuk memanipulasi informasi file (struct `stat`, `lstat()`, dll.).
+- `#include <sys/time.h>` header untuk waktu (`struct timeval`, `gettimeofday()`), kadang FUSE butuh timestamp.
+- `#include <sys/types.h>` header untuk tipe data seperti `uid_t`, `gid_t`, `off_t`, `mode_t`, dll.
+- `#include <unistd.h>` header untuk POSIX API (`read()`, `close()`, `unlink()`, `getuid()`, dll.).
