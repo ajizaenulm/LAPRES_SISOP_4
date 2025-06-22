@@ -541,5 +541,8 @@ Bagian ini adalah fungsi main yang menjadi titik awal program FUSE.
 - `umask(0);` mengatur mode pembuatan file agar tidak dibatasi oleh mask permission default, sehingga permission file diatur persis seperti yang didefinisikan oleh filesystem.
 - Pemeriksaan argumen memastikan pengguna memasukkan minimal satu argumen, yaitu mount point tempat filesystem akan dipasang. Jika tidak, program menampilkan pesan penggunaan dan keluar.
 - Fungsi `fuse_main` dipanggil untuk memulai filesystem FUSE dengan operasi yang sudah didefinisikan di `xmp_oper`, serta menggunakan argumen yang diterima dari command line.
+
+
+
 Singkatnya, ini menjalankan filesystem FUSE dan memasangnya di direktori yang ditentukan oleh pengguna.
 
